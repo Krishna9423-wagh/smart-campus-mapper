@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model StudySpot {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  latitude    Float
+  longitude   Float
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  ratings     Rating[]
+}
+
+model Rating {
+  id          String    @id @default(uuid())
+  spotId      String
+  noiseLevel  Int       // 1 (Quiet) to 5 (Loud)
+  wifiQuality Int       // 1 (Poor) to 5 (Excellent)
+  outlets     Int       // 1 (None) to 5 (Many)
+  crowdedness Int       // 1 (Empty) to 5 (Full)
+  comment     String?
+  photoUrl    String?
+  createdAt   DateTime  @default(now())
+  
+  spot        StudySpot @relation(fields: [spotId], references: [id], onDelete: Cascade)
+}
