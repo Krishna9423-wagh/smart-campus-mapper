@@ -4,6 +4,9 @@
   <p>
     <strong>A full-stack, AI-ready web application designed to help university students discover and rate the optimal studying environments based on real-time noise levels, Wi-Fi speed, and crowdedness.</strong>
   </p>
+  
+  <h3>🚀 <a href="https://smart-campus-mapper.vercel.app/" target="_blank">View Live Demo</a></h3>
+  <br />
   <img src="public/preview.jpg" alt="Campus Study Spot Finder Preview" width="800" />
   <br />
   <p>
